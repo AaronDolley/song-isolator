@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Uploads & generated files
+uploads/
+static/stems/
+
+# OS files
+.DS_Store
+Thumbs.db
