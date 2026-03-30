@@ -26,7 +26,7 @@ Successfully seperated audio into:
 ## Observations:
 - All stems are clear and usable 
 - "Other" contains piano and remaining instruments
-- No clear guitar detected i this track 
+- No clear guitar detected in this track 
 - Separation works well, but not perfect (some overlap)
 
 Next step: automate this process using Python
