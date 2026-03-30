@@ -15,3 +15,18 @@ A web application that allows users to upload a song and seperate it into indivi
 
 ## Status
 In development
+
+## Day 2 - Demucs Testing
+Successfully seperated audio into:
+- Vocals
+- Drums
+- Bass
+- Other
+
+## Observations:
+- All stems are clear and usable 
+- "Other" contains piano and remaining instruments
+- No clear guitar detected i this track 
+- Separation works well, but not perfect (some overlap)
+
+Next step: automate this process using Python
