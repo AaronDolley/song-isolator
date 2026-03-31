@@ -8,6 +8,7 @@ venv/
 # Uploads & generated files
 uploads/
 static/stems/
+separated/
 
 # OS files
 .DS_Store

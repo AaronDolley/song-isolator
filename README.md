@@ -30,3 +30,13 @@ Successfully seperated audio into:
 - Separation works well, but not perfect (some overlap)
 
 Next step: automate this process using Python
+
+## Day 3 - Python Integration
+Created a Python script to run Demucs automatically.
+
+## Features:
+- Runs stem separation using Python
+- Outputs stems to structured folder
+- Returns list of generated files
+
+Next step: Connect this to a web interface
