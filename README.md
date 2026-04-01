@@ -40,3 +40,13 @@ Created a Python script to run Demucs automatically.
 - Returns list of generated files
 
 Next step: Connect this to a web interface
+
+# Day 4 - File System Structure
+Improved file handling and project structure.
+
+### Changes:
+- Added uploads/ folder for incoming files
+- Added static/stems/ for processed outputs
+- Automatically moves separated stems into organized folders
+
+This prepares the app for web integration.
