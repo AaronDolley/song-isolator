@@ -16,9 +16,15 @@ def isolate_song(filepath):
         return []
 
     # Locate Demucs output
-    song_name = f"{Path(filepath).stem}_{int(time.time())}"
-    demucs_output = Path("separated") / "htdemucs" / song_name
+    input_path = Path(filepath)
+    song_name = input_path.stem
 
+    demucs_root = Path("separated/htdemucs")
+
+    # Find the correct folder (handle uploads automatically)
+    all_folders = [p for p in demucs_root.glob("**/*") if p.is_dir()]
+    demucs_output = max(all_folders, key=lambda p: p.stat().st_mtime)
+    
     # Target folder (your app structure)
     target_folder = Path("static/stems") / song_name
     target_folder.mkdir(parents=True, exist_ok=True)

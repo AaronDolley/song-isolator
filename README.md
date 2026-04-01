@@ -50,3 +50,9 @@ Improved file handling and project structure.
 - Automatically moves separated stems into organized folders
 
 This prepares the app for web integration.
+
+## Day 5 — Flask Web Interface
+
+- Minimal web interface to upload MP3 files
+- Automatically separates uploaded songs
+- Stores stems in `static/stems/<song_name>/`
