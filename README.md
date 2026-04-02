@@ -56,3 +56,9 @@ This prepares the app for web integration.
 - Minimal web interface to upload MP3 files
 - Automatically separates uploaded songs
 - Stores stems in `static/stems/<song_name>/`
+
+## Day 6 - Download System
+
+- Added results page with download links
+- Users can now download separated stems
+- Improved user flow from upload -> results
