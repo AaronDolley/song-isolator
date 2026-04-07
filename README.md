@@ -69,3 +69,12 @@ This prepares the app for web integration.
 - Created styled upload page
 - Created results page with download links
 - Improved overall user experience
+
+## Day 8 - Audio Playback Feature
+
+- Added audio players for each separated stem
+- Users can:
+    - Play stems directly in the browser
+    - Pause audio
+    - Seek through the track
+- Improved user experience by allowing preview before download
