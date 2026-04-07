@@ -62,3 +62,10 @@ This prepares the app for web integration.
 - Added results page with download links
 - Users can now download separated stems
 - Improved user flow from upload -> results
+
+## Day 7 - UI Improvements
+
+- Added HTML templates using Flask (Jinja)
+- Created styled upload page
+- Created results page with download links
+- Improved overall user experience
