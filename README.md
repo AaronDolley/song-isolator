@@ -78,3 +78,12 @@ This prepares the app for web integration.
     - Pause audio
     - Seek through the track
 - Improved user experience by allowing preview before download
+
+## Day 9 - Multi-Stem Playback & Controls
+
+- Added "Play All / Pause All" functionality to play all stems in sync.
+- Implemented mute/unmute controls for individual stems
+- Users can now:
+    - Play the full song using separated stems
+    - Mute specific stems (e.g., vocals, drums, bass)
+- Refactored JavaScript into a separate file for better structure

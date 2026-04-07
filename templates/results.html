@@ -7,14 +7,18 @@
 <body>
     <h1>🎶 Your Stems</h1>
 
+    <button onclick="togglePlay()">Play / Pause All</button>
+
     {% for file in files %}
 
     <div>
         <p>{{ file }}</p>
-        <audio controls>
+        <audio class="stem-audio" preload="audio" controls>
             <source src="{{ url_for('static', filename='stems/' + folder + '/' + file) }}" type="audio/mp3">
             Your browser does not support audio
         </audio>
+
+        <button onclick="toggleMute(this)">Mute</button>
     </div>
    
     {% endfor %}
@@ -23,5 +27,6 @@
         <button>Upload Another Song</button>
     </a>
 
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
