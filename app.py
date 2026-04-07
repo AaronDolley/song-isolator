@@ -28,13 +28,7 @@ def index():
         else:
             return f"No file uploaded.", 400
         
-    return """
-        <h1>Song Isolator</h1>
-        <form method="Post" enctype="multipart/form-data"> 
-            <input type="file" name="song" accept=".mp3"/>
-            <button type="submit">Upload & Separate</button>
-        </form>
-        """
+    return render_template("index.html")
 
 @app.route("/results/<folder>")
 def results(folder):
@@ -45,13 +39,7 @@ def results(folder):
     for file in files:
         links += f'<li><a href="/download/{folder}/{file}">{file}</a></li>'
 
-    return f"""
-        <h2>Download your stems:</h2>
-        <ul>
-            {links}
-        </ul>
-        <a href="/">Go back</a>
-        """
+    return render_template("results.html", files=files, folder=folder)
 
 @app.route("/download/<folder>/<filename>")
 def download_file(folder, filename):

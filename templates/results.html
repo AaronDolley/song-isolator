@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <h1>🎶 Your Stems</h1>
+
+    {% for file in files %}
+
+    <a href="{{ url_for('download_file', folder=folder, filename=file) }}">
+        {{file}}
+    </a>
+
+    {% endfor %}
+
+    <a href="/">
+        <button>Upload Another Song</button>
+    </a>
+
+</body>
+</html>

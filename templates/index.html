@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song Isolator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎧Song Isolator</h1>
+        <p>Upload a song and separate vocals, drums, bass, and more</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="song" accept=".mp3" required/>
+            <br>
+            <button type="submit">Upload & Separate</button>
+        </form>
+    </div>
+</body>
+</html>

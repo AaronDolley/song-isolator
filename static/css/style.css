@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: #121212;
+    color: white;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px;
+}
+
+button {
+    background: #1db954;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #17a74a;
+}
+
+a {
+    display: block;
+    margin: 10px;
+    color: #1db954;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
