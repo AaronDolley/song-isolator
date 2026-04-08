@@ -87,3 +87,9 @@ This prepares the app for web integration.
     - Play the full song using separated stems
     - Mute specific stems (e.g., vocals, drums, bass)
 - Refactored JavaScript into a separate file for better structure
+
+## Day 10 - Waveform
+
+- Added waveform visualization using WaveSurfer.js
+- Replaced default audio players with inetractive waveforms
+- Implemented synchronized playback using wavefrom players

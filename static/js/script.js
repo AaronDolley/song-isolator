@@ -1,28 +1,45 @@
 let isPlaying = false;
+let players = [];
+
+window.addEventListener("DOMContentLoaded", () => {
+    const stems = document.querySelectorAll(".stem");
+
+    stems.forEach((stem, index) => {
+        const url = stem.getAttribute("data-url");
+        const container = stem.querySelector(".waveform");
+
+        console.log("Loading:", url);
+
+        const wavesurfer = WaveSurfer.create({
+            container: container,
+            waveColor: "#555",
+            progressColor: "#1db954",
+            height: 80
+        });
+
+        wavesurfer.load(url);
+
+        players.push(wavesurfer);
+    });
+});
 
 function togglePlay() {
-    const audios = document.querySelectorAll(".stem-audio");
-
     if (!isPlaying) {
-        audios.forEach(audio => {
-            audio.play().catch(err => console.log(err));
-        });
+        players.forEach(p => p.play());
         isPlaying = true;
     } else {
-        audios.forEach(audio => audio.pause());
+        players.forEach(p => p.pause());
         isPlaying = false;
     }
-    console.log("Play button clicked");
 }
 
-function toggleMute(button) {
-    const audio = button.parentElement.querySelector("audio");
+function toggleMute(index, button) {
+    const player = players[index];
 
-    audio.muted = !audio.muted;
+    if (!player) return; //saftey check
 
-    if (audio.muted) {
-        button.innerText = "Unmute";
-    } else {
-        button.innerText = "Mute";
-    }
+    const isMuted = player.getMuted();
+    player.setMuted(!isMuted);
+
+    button.innerText = !isMuted ? "Unmute" : "Mute";
 }

@@ -3,6 +3,7 @@
 <head>
     <title>Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
 </head>
 <body>
     <h1>🎶 Your Stems</h1>
@@ -10,23 +11,18 @@
     <button onclick="togglePlay()">Play / Pause All</button>
 
     {% for file in files %}
+    <div class="stem" data-url="{{ url_for('static', filename='stems/' + folder + '/' + file) }}">
 
-    <div>
         <p>{{ file }}</p>
-        <audio class="stem-audio" preload="audio" controls>
-            <source src="{{ url_for('static', filename='stems/' + folder + '/' + file) }}" type="audio/mp3">
-            Your browser does not support audio
-        </audio>
 
-        <button onclick="toggleMute(this)">Mute</button>
+        <div class="waveform"></div>
+
+        <button class="toggleMute({{ loop.index0 }}, this)">Mute</button>
+
     </div>
-   
     {% endfor %}
 
-    <a href="/">
-        <button>Upload Another Song</button>
-    </a>
-
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
