@@ -17,7 +17,14 @@
 
         <div class="waveform"></div>
 
-        <button class="toggleMute({{ loop.index0 }}, this)">Mute</button>
+        <!-- Controls -->
+        <button onclick="toggleSinglePlay({{ loop.index0 }}, this)"> ▶️ Play</button>
+        <button onclick="toggleMute({{ loop.index0 }}, this)"> 🔇 Mute</button>
+
+        <!-- Download -->
+         <a href="{{ url_for('static', filename='stems/' + folder + '/' + file) }}" download>
+            <button>⬇️ Download</button>
+         </a>
 
     </div>
     {% endfor %}

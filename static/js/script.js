@@ -36,10 +36,25 @@ function togglePlay() {
 function toggleMute(index, button) {
     const player = players[index];
 
-    if (!player) return; //saftey check
+    if (!player) return;
 
-    const isMuted = player.getMuted();
-    player.setMuted(!isMuted);
+    //Track mute manually
+    player.muted = !player.muted;
+    player.setVolume(player.muted ? 0 : 1);
 
-    button.innerText = !isMuted ? "Unmute" : "Mute";
+    button.innerText = player.muted ? "Unmute" : "Mute";
+}
+
+function toggleSinglePlay(index, button) {
+    const player = players[index];
+
+    if (!player) return;
+
+    if (player.isPlaying()) {
+        player.pause();
+        button.innerText = "Play";
+    } else {
+        player.play();
+        button.innerText = "Pause";
+    }
 }
