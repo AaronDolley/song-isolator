@@ -1,5 +1,6 @@
 let isPlaying = false;
 let players = [];
+let previousVolumes = [];
 
 window.addEventListener("DOMContentLoaded", () => {
     const stems = document.querySelectorAll(".stem");
@@ -25,7 +26,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function togglePlay() {
     if (!isPlaying) {
-        players.forEach(p => p.play());
+        const currentTime = players[0]?.getCurrentTime() || 0;
+
+        players.forEach(p => {
+            p.seekTo(currentTime / p.getDuration());
+            p.play();
+        });
+        
         isPlaying = true;
     } else {
         players.forEach(p => p.pause());
@@ -35,14 +42,31 @@ function togglePlay() {
 
 function toggleMute(index, button) {
     const player = players[index];
-
     if (!player) return;
 
-    //Track mute manually
-    player.muted = !player.muted;
-    player.setVolume(player.muted ? 0 : 1);
+    const currentVolume = player.getVolume();
+    const reference = players[0]; // use first track as master clock
 
-    button.innerText = player.muted ? "Unmute" : "Mute";
+    if (currentVolume > 0) {
+        // if currently not muted
+        previousVolumes[index] = currentVolume; // save volume
+        player.setVolume(0);
+        button.innerText = "🔊 Unmute";
+    } else {
+        // Restore previous volume (or default to 1)
+        const restoreVolume = previousVolumes[index] ?? 1;
+
+        if (reference && reference.isPlaying()) {
+            const currentTime = reference.getCurrentTime();
+            const duration = player.getDuration();
+
+            if (duration > 0) {
+                player.seekTo(currentTime / duration);
+            }
+        }
+        player.setVolume(restoreVolume);
+        button.innerText = "🔇 Mute";
+    }
 }
 
 function toggleSinglePlay(index, button) {
@@ -58,3 +82,4 @@ function toggleSinglePlay(index, button) {
         button.innerText = "Pause";
     }
 }
+

@@ -100,3 +100,9 @@ This prepares the app for web integration.
 - Fixed mute functionality
 - Added download button for each stem 
 - Improved user control over audio playback
+
+## Day 12 - Loading Screen 
+
+- Added animated loading screen during audio processing
+- Improved user experience while waiting for separation 
+- Added music-themed animation for visual feedback
